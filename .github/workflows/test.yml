@@ -1,0 +1,33 @@
+# .github/workflows/test.yml
+# Test workflow for Terraform module template
+# add your stages here if you need more.
+name: test
+on:
+  push:
+   branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    strategy:
+      matrix:
+        example:
+          - simple
+    name: validate
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: 'actions/checkout@v2'
+        with:
+          fetch-depth: 0
+      - name: Get Terraform
+        run: |
+          curl -fSL https://releases.hashicorp.com/terraform/1.2.3/terraform_1.2.3_linux_amd64.zip \
+          | gunzip -> terraform ; chmod u+x terraform
+      - name: Init terraform
+        run: ./terraform -chdir=examples/${{ matrix.example }} init
+      - name: Validate terraform
+        run: ./terraform -chdir=examples/${{ matrix.example }} validate
