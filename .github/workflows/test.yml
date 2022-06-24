@@ -1,0 +1,21 @@
+# .github/workflows/test.yml
+# Test workflow for Terraform module template
+# add your stages here if you need more.
+name: test
+on:
+  push:
+   branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Get Terraform
+        run: |
+          curl -fSL https://releases.hashicorp.com/terraform/1.2.3/terraform_1.2.3_linux_amd64.zip \
+          | gunzip -> terraform ; chmod u+x terraform
