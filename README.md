@@ -3,10 +3,12 @@
 <!-- Delete this section when using the template repository -->
 
 This is the template repository for my terraform modules.
+It attempts to follow the [default structure](https://www.terraform.io/language/modules/develop/structure) for terraform modules.
 
 It is designed to speed up development of new terraform modules by providing:
 
 1. basic terraform setup for backend, providers, _etc_.
+  1. the default required version for terraform is `>1.2.0`
 1. common pre-commit hooks configuration
 1. semantic release configuration
 1. examples directory for testing and demonstration
@@ -39,7 +41,7 @@ These examples show how to use the module in your project, and are also use for 
 <!--
 
 Modify this section according to the kinds of examples you want
-You may want to change the names of the examples or the kinds of 
+You may want to change the names of the examples or the kinds of
 examples themselves
 
 -->
