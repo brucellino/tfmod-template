@@ -33,3 +33,6 @@ repos:
     hooks:
       - id: commitlint
         additional_dependencies: ['@commitlint/config-conventional']
+
+ci:
+  skip: [terraform_fmt, terraform_fmt, terraform_tfsec, commitlint]
