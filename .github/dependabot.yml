@@ -11,3 +11,13 @@ updates:
       - "brucellino"
     labels:
       - terraform
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "actions"
+    assignees:
+      - "brucellino"
+    reviewers:
+      - "brucellino"
